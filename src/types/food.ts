@@ -3,5 +3,5 @@ export interface Food {
   name: string;
   amount?: number;
   unit: string;
-  last_update_at?: number;
+  last_updated_at?: number;
 }
