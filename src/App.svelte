@@ -2,8 +2,6 @@
   import Tailwindcss from "./Tailwindcss.svelte";
   import Router from "svelte-spa-router";
   import { routes } from "./router";
-
-  export let name: string;
 </script>
 
 <Tailwindcss />
