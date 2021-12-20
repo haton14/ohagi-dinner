@@ -18,11 +18,13 @@ export class RecordsRepository {
                       {
                         id: 1,
                         name: "ミルワーム",
+                        amount: 1,
                         unit: "匹",
                       },
                       {
                         id: 2,
                         name: "ペレット",
+                        amount: 10,
                         unit: "個",
                       },
                     ],
@@ -38,11 +40,13 @@ export class RecordsRepository {
                       {
                         id: 1,
                         name: "ミルワーム",
+                        amount: 2,
                         unit: "匹",
                       },
                       {
                         id: 2,
                         name: "ペレット",
+                        amount: 14,
                         unit: "個",
                       },
                     ],
@@ -58,11 +62,13 @@ export class RecordsRepository {
                       {
                         id: 1,
                         name: "ミルワーム",
+                        amount: 1,
                         unit: "匹",
                       },
                       {
                         id: 2,
                         name: "ペレット",
+                        amount: 4,
                         unit: "個",
                       },
                     ],
@@ -83,11 +89,13 @@ export class RecordsRepository {
                       {
                         id: 1,
                         name: "ミルワーム",
+                        amount: 1,
                         unit: "匹",
                       },
                       {
                         id: 2,
                         name: "ペレット",
+                        amount: 1,
                         unit: "個",
                       },
                     ],
@@ -103,11 +111,13 @@ export class RecordsRepository {
                       {
                         id: 1,
                         name: "ミルワーム",
+                        amount: 1,
                         unit: "匹",
                       },
                       {
                         id: 2,
                         name: "ペレット",
+                        amount: 1,
                         unit: "個",
                       },
                     ],
@@ -133,11 +143,13 @@ export class RecordsRepository {
                       {
                         id: 1,
                         name: "ミルワーム",
+                        amount: 1,
                         unit: "匹",
                       },
                       {
                         id: 2,
                         name: "ペレット",
+                        amount: 1,
                         unit: "個",
                       },
                     ],
@@ -153,11 +165,13 @@ export class RecordsRepository {
                       {
                         id: 1,
                         name: "ミルワーム",
+                        amount: 3,
                         unit: "匹",
                       },
                       {
                         id: 2,
                         name: "ペレット",
+                        amount: 12,
                         unit: "個",
                       },
                     ],
@@ -173,11 +187,13 @@ export class RecordsRepository {
                       {
                         id: 1,
                         name: "ミルワーム",
+                        amount: 1,
                         unit: "匹",
                       },
                       {
                         id: 2,
                         name: "ペレット",
+                        amount: 1,
                         unit: "個",
                       },
                     ],
@@ -198,11 +214,13 @@ export class RecordsRepository {
                       {
                         id: 1,
                         name: "ミルワーム",
+                        amount: 1,
                         unit: "匹",
                       },
                       {
                         id: 2,
                         name: "ペレット",
+                        amount: 1,
                         unit: "個",
                       },
                     ],

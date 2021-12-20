@@ -18,6 +18,7 @@
             year={yearRecord.year}
             month={monthRecord.month}
             day={dayRecord.day}
+            foods= {dayRecord.record.foods}
           />
         {/each}
       </div>
