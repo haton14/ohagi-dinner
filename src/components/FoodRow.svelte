@@ -1,4 +1,10 @@
+<script lang="ts">
+  export let name: string;
+  export let amount: number;
+  export let unit: string;
+</script>
+
 <div class="p-2 flex flex-row justify-between">
-  <p>ミルワーム</p>
-  <p>1匹</p>
+  <p>{name}</p>
+  <p>{amount}{unit}</p>
 </div>
