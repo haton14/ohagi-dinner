@@ -1,22 +1,26 @@
 <script lang="ts">
+  import { each } from "svelte/internal";
+
   import Record from "../components/Record.svelte";
   import YearMonth from "../components/YearMonth.svelte";
+  import { RecordsRepository } from "../repositories/records";
+
+  const records = new RecordsRepository().get();
 </script>
 
 <div>
-  <YearMonth year={2021} month={12} />
-  <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
-    <Record year={2021} month={12} day={1} />
-    <Record year={2021} month={12} day={2} />
-    <Record year={2021} month={12} day={3} />
-    <Record year={2021} month={12} day={4} />
-    <Record year={2021} month={12} day={31} />
-  </div>
-  <YearMonth year={2022} month={1} />
-  <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
-    <Record year={2022} month={1} day={1} />
-    <Record year={2022} month={1} day={2} />
-    <Record year={2022} month={1} day={3} />
-    <Record year={2022} month={1} day={4} />
-  </div>
+  {#each records.years as yearRecord}
+    {#each yearRecord.months as monthRecord}
+      <YearMonth year={yearRecord.year} month={monthRecord.month} />
+      <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
+        {#each monthRecord.days as dayRecord}
+          <Record
+            year={yearRecord.year}
+            month={monthRecord.month}
+            day={dayRecord.day}
+          />
+        {/each}
+      </div>
+    {/each}
+  {/each}
 </div>
