@@ -14,7 +14,7 @@
     <Day {year} {month} {day} />
   </div>
   <div
-    class="border-t border-r border-b border-l border-grey-light rounded-b rounded-t p-4 flex flex-col leading-normal w-12 sm:w-5/12 sm:text-red-600 lg:w-7/12 lg:text-green-600"
+    class="border-t border-r border-b border-l border-grey-light rounded-b rounded-t p-4 flex flex-col leading-normal w-full sm:w-7/12 sm:text-red-600"
   >
     <div class="my-4">
         {#each foods as food}
