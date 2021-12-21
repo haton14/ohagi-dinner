@@ -4,7 +4,7 @@ import httpClient from "./httpClient";
 
 export class RecordsRepository implements RecordsRepositoryInterface {
   async get(): Promise<Records> {
-    const { data } = await httpClient.get<Records>("/records");
+    const { data } = await httpClient.get<Records>("/records/v2");
     return data;
   }
   async create(record: Record): Promise<Record> {

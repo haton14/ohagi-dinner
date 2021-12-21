@@ -1,15 +1,13 @@
 <script lang="ts">
   import dayjs from "dayjs";
   import { weekdaysShort as weekdays } from "dayjs/locale/ja";
-  
-  export let year: number;
-  export let month: number;
-  export let day: number;
 
-  let weekday: string = weekdays[dayjs(`${year}-${month}-${day}`).day()];
+  export let created_at: number;
+
+  let displayDay = dayjs.unix(created_at);
 </script>
 
 <div class="p-2 justify-between">
-  <p>{weekday}</p>
-  <p>{day}</p>
+  <p>{weekdays[displayDay.day()]}</p>
+  <p>{displayDay.date()}</p>
 </div>

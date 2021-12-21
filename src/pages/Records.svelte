@@ -33,21 +33,12 @@
 
 <div>
   {#await response then records}
-    {#each records.years as yearRecord}
-      {#each yearRecord.months as monthRecord}
-        <YearMonth year={yearRecord.year} month={monthRecord.month} />
-        <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
-          {#each monthRecord.days as dayRecord}
-            <RecordCom
-              year={yearRecord.year}
-              month={monthRecord.month}
-              day={dayRecord.day}
-              foods={dayRecord.record.foods}
-            />
-          {/each}
-        </div>
+    <!--<YearMonth year={yearRecord.year} month={monthRecord.month} />-->
+    <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
+      {#each records.records as record}
+        <RecordCom created_at={record.created_at} foods={record.foods} />
       {/each}
-    {/each}
+    </div>
   {/await}
-  <button on:click={addClick} >Add</button>
+  <button on:click={addClick}>Add</button>
 </div>
