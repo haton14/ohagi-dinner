@@ -1,15 +1,20 @@
 <script lang="ts">
   import { each } from "svelte/internal";
 
+  import { records } from "../store/record";
   import RecordCom from "../components/Record.svelte";
   import YearMonth from "../components/YearMonth.svelte";
   import RepositoryFactory, { RECORDS } from "../repositories/factory";
   import type { Record } from "../types/record";
 
   const RecordsRepository = RepositoryFactory[RECORDS];
-  const response = RecordsRepository.get();
+  const get = async () => {
+    const response = await RecordsRepository.get();
+    records.add(response.records);
+  };
+  get();
 
-  function addClick() {
+  const add =async () =>{
     let record: Record = {
       foods: [
         {
@@ -27,18 +32,21 @@
       ],
       created_at: 1111,
     };
-    RecordsRepository.create(record);
+    const response = await RecordsRepository.create(record);
+    records.add([response]);
+  }
+
+  function addClick() {
+    add();
   }
 </script>
 
 <div>
-  {#await response then records}
-    <!--<YearMonth year={yearRecord.year} month={monthRecord.month} />-->
-    <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
-      {#each records.records as record}
-        <RecordCom created_at={record.created_at} foods={record.foods} />
-      {/each}
-    </div>
-  {/await}
+  <!--<YearMonth year={yearRecord.year} month={monthRecord.month} />-->
+  <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
+    {#each $records as record}
+      <RecordCom created_at={record.created_at} foods={record.foods} />
+    {/each}
+  </div>
   <button on:click={addClick}>Add</button>
 </div>
