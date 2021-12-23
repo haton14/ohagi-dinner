@@ -44,19 +44,29 @@
   }
 </script>
 
-{#each foods as food}
-  <div
-    class="p-4 flex flex-col leading-normal w-7/12"
-  >
-    <div class="p-2 flex flex-row justify-between">
-      <input bind:value={food.name} type="text" placeholder="フード" required />
-      <input bind:value={food.amount} type="number" placeholder="量" required />
-      <input bind:value={food.unit} type="text" placeholder="単位" required />
+<div>
+  {#each foods as food}
+    <div class="p-4 flex flex-col leading-normal w-7/12">
+      <div class="p-2 flex flex-row justify-between">
+        <input
+          bind:value={food.name}
+          type="text"
+          placeholder="フード"
+          required
+        />
+        <input
+          bind:value={food.amount}
+          type="number"
+          placeholder="量"
+          required
+        />
+        <input bind:value={food.unit} type="text" placeholder="単位" required />
+      </div>
     </div>
-  </div>
-{/each}
-<button on:click={addForm}>Add</button>
+  {/each}
+  <button on:click={addForm}>Add</button>
 
-<button on:click={saveClick}>Save</button>
+  <button on:click={saveClick}>Save</button>
 
-<a href={`/`} use:link> back </a>
+  <a href={`/`} use:link> back </a>
+</div>
