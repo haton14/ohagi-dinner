@@ -61,6 +61,7 @@
           class="w-3/12"
           bind:value={foods[i].amount}
           type="number"
+          inputmode="decimal"
           placeholder="量"
           required
         />
