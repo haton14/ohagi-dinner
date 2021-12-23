@@ -3,6 +3,7 @@
 
   import { records } from "../store/record";
   import RecordCom from "../components/Record.svelte";
+  import { link } from "svelte-spa-router";
   import YearMonth from "../components/YearMonth.svelte";
   import RepositoryFactory, { RECORDS } from "../repositories/factory";
   import type { Record } from "../types/record";
@@ -12,9 +13,11 @@
     const response = await RecordsRepository.get();
     records.add(response.records);
   };
-  get();
+  if ($records.length < 1) {
+    get();
+  }
 
-  const add =async () =>{
+  const add = async () => {
     let record: Record = {
       foods: [
         {
@@ -34,7 +37,7 @@
     };
     const response = await RecordsRepository.create(record);
     records.add([response]);
-  }
+  };
 
   function addClick() {
     add();
@@ -49,4 +52,5 @@
     {/each}
   </div>
   <button on:click={addClick}>Add</button>
+  <a href={`/new`} use:link> + </a>
 </div>
