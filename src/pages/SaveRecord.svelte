@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { link } from "svelte-spa-router";
+  import { link, push } from "svelte-spa-router";
   import { records } from "../store/record";
   import RepositoryFactory, { RECORDS } from "../repositories/factory";
   import type { Record } from "../types/record";
@@ -38,6 +38,7 @@
     };
     const response = await RecordsRepository.create(record);
     records.add([response]);
+    push("/");
   };
 
   function saveClick() {
