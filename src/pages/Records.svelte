@@ -51,6 +51,5 @@
       <RecordCom created_at={record.created_at} foods={record.foods} />
     {/each}
   </div>
-  <button on:click={addClick}>Add</button>
   <a href={`/new`} use:link> + </a>
 </div>
