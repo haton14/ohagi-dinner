@@ -46,21 +46,29 @@
 
 <div>
   {#each foods as food}
-    <div class="p-4 flex flex-col leading-normal w-7/12">
+    <div class="p-4 flex flex-col leading-normal">
       <div class="p-2 flex flex-row justify-between">
         <input
+          class="w-10/12"
           bind:value={food.name}
           type="text"
           placeholder="フード"
           required
         />
         <input
+          class="w-3/12"
           bind:value={food.amount}
           type="number"
           placeholder="量"
           required
         />
-        <input bind:value={food.unit} type="text" placeholder="単位" required />
+        <input
+          class="w-3/12"
+          bind:value={food.unit}
+          type="text"
+          placeholder="単位"
+          required
+        />
       </div>
     </div>
   {/each}
