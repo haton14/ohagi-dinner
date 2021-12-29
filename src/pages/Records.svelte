@@ -14,7 +14,7 @@
     get();
   }
   $records.sort(function (a, b) {
-    return a.created_at < b.created_at ? 1 : -1; //オブジェクトの昇順ソート
+    return a.created_at < b.created_at ? 1 : -1; 
   });
 
   $: sortedRecords = $records.sort(
