@@ -7,7 +7,7 @@
   let displayDay = dayjs.unix(created_at);
 </script>
 
-<div class="p-2 justify-between">
+<div class="p-2 justify-center">
   <p>{weekdays[displayDay.day()]}</p>
   <p>{displayDay.date()}</p>
 </div>

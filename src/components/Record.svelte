@@ -8,7 +8,7 @@
 </script>
 
 <div class="w-full flex flex-row">
-  <div class="m-4 w-auto">
+  <div class="m-4 w-2/12">
     <Day {created_at} />
   </div>
   <div
