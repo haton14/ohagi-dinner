@@ -9,17 +9,21 @@
   let foods: Food[] = new Array();
 
   let food: Food = {
+    id: null,
     name: null,
     amount: null,
     unit: null,
+    last_updated_at: null,
   };
   foods.push(food);
 
   function addForm() {
     let foodAdd: Food = {
+      id: null,
       name: null,
       amount: null,
       unit: null,
+      last_updated_at: null,
     };
     foods.push(foodAdd);
     formCount += 1;
@@ -27,8 +31,10 @@
 
   const save = async () => {
     let record: Record = {
+      id: null,
       foods: foods,
       created_at: 1111,
+      last_updated_at: null,
     };
     const response = await RecordsRepository.create(record);
     records.add([response]);

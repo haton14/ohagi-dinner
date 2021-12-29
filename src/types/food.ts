@@ -1,7 +1,7 @@
 export interface Food {
-  id?: number;
+  id: number;
   name: string;
-  amount?: number;
+  amount: number;
   unit: string;
-  last_updated_at?: number;
+  last_updated_at: number;
 }
