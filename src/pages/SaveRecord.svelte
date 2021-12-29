@@ -17,9 +17,9 @@
 
   function addForm() {
     let foodAdd: Food = {
-      name: "",
-      amount: 0,
-      unit: "",
+      name: null,
+      amount: null,
+      unit: null,
     };
     foods.push(foodAdd);
     formCount += 1;
