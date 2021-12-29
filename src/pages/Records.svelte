@@ -1,12 +1,9 @@
 <script lang="ts">
-  import { each } from "svelte/internal";
-
   import { records } from "../store/record";
   import RecordCom from "../components/Record.svelte";
   import { link } from "svelte-spa-router";
   import YearMonth from "../components/YearMonth.svelte";
   import RepositoryFactory, { RECORDS } from "../repositories/factory";
-  import type { Record } from "../types/record";
 
   const RecordsRepository = RepositoryFactory[RECORDS];
   const get = async () => {
