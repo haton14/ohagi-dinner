@@ -4,14 +4,8 @@
   import RepositoryFactory, { RECORDS } from "../repositories/factory";
   import type { Record } from "../types/record";
   import type { Food } from "../types/food";
-  import { is_client } from "svelte/internal";
   const RecordsRepository = RepositoryFactory[RECORDS];
-  let foodName: string = "";
-  let amont: number = 0;
-  let unit: string = "";
   let formCount: number = 1;
-
-  let record: Record;
   let foods: Food[] = new Array();
 
   let food: Food = {
