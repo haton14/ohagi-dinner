@@ -13,14 +13,27 @@
   if ($records.length < 1) {
     get();
   }
+  let before_created_at: number = 0;
+  function aa(bb: number) {
+    before_created_at = bb;
+  }
 </script>
 
 <div>
-  <!--<YearMonth year={yearRecord.year} month={monthRecord.month} />-->
-  <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
-    {#each $records as record}
+    {#each $records as record, i}
+      {#if i === 0}
+        <YearMonth
+          before_created_at={0}
+          after_created_at={record.created_at}
+        />
+      {:else}
+        <YearMonth
+          before_created_at={$records[i-1].created_at}
+          after_created_at={record.created_at}
+        />
+      {/if}
       <RecordCom created_at={record.created_at} foods={record.foods} />
     {/each}
-  </div>
+ 
   <a href={`/new`} use:link> + </a>
 </div>
