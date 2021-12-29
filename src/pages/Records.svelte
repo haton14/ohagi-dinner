@@ -16,32 +16,6 @@
   if ($records.length < 1) {
     get();
   }
-
-  const add = async () => {
-    let record: Record = {
-      foods: [
-        {
-          id: 1,
-          name: "ミルワーム",
-          amount: 1,
-          unit: "匹",
-        },
-        {
-          id: 2,
-          name: "ペレット",
-          amount: 10,
-          unit: "個",
-        },
-      ],
-      created_at: 1111,
-    };
-    const response = await RecordsRepository.create(record);
-    records.add([response]);
-  };
-
-  function addClick() {
-    add();
-  }
 </script>
 
 <div>
