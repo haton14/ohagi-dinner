@@ -1,6 +1,6 @@
 <script lang="ts">
   import { records } from "../store/record";
-  import RecordCom from "../components/Record.svelte";
+  import Record from "../components/Record.svelte";
   import { link } from "svelte-spa-router";
   import YearMonth from "../components/YearMonth.svelte";
   import RepositoryFactory, { RECORDS } from "../repositories/factory";
@@ -32,7 +32,7 @@
         after_created_at={record.created_at}
       />
     {/if}
-    <RecordCom created_at={record.created_at} foods={record.foods} />
+    <Record created_at={record.created_at} foods={record.foods} />
   {/each}
 
   <a href={`/new`} use:link> + </a>

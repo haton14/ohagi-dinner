@@ -7,12 +7,12 @@
   export let foods: Food[];
 </script>
 
-<div class="w-full flex flex-row">
-  <div class="m-4 w-2/12">
+<div class="w-full flex flex-row p-3">
+  <div class="m-5 w-1/12">
     <Day {created_at} />
   </div>
   <div
-    class="border-t border-r border-b border-l border-grey-light rounded-b rounded-t p-4 flex flex-col leading-normal w-full sm:w-7/12 sm:text-red-600"
+    class="border-t border-r border-b border-l border-grey-light rounded-b rounded-t p-1 flex flex-col w-full sm:w-7/12"
   >
     <div class="my-4">
       {#each foods as food}

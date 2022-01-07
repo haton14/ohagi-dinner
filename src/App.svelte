@@ -6,7 +6,7 @@
 
 <Tailwindcss />
 <main>
-  <div class="container mx-auto px-6 my-4">
+  <div class="container mx-auto px-1 my-2">
     <Router {routes} />
   </div>
 </main>

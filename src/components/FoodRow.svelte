@@ -4,7 +4,7 @@
   export let unit: string;
 </script>
 
-<div class="p-2 flex flex-row justify-between">
+<div class="p-1 flex flex-row justify-between">
   <p>{name}</p>
   <p>{amount}{unit}</p>
 </div>
