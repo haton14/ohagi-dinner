@@ -8,7 +8,7 @@
 </script>
 
 <div class="p-2 justify-center">
-  <p>{weekdays[displayDay.day()]}</p>
-  <p>{displayDay.date()}</p>
-  <p class="text-xs"> {displayDay.hour()}:{displayDay.minute()}</p>
+  <p class="text-xs text-gray-700">{weekdays[displayDay.day()]}</p>
+  <p class="text-xl">{displayDay.date()}</p>
+  <p class="text-xs text-gray-400"> {displayDay.hour()}:{displayDay.minute()}</p>
 </div>
