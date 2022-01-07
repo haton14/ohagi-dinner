@@ -10,4 +10,5 @@
 <div class="p-2 justify-center">
   <p>{weekdays[displayDay.day()]}</p>
   <p>{displayDay.date()}</p>
+  <p class="text-xs"> {displayDay.hour()}:{displayDay.minute()}</p>
 </div>
