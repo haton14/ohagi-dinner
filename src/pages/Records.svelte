@@ -14,7 +14,7 @@
     get();
   }
   $records.sort(function (a, b) {
-    return a.created_at < b.created_at ? 1 : -1; 
+    return a.created_at < b.created_at ? 1 : -1;
   });
 
   $: sortedRecords = $records.sort(
@@ -22,7 +22,7 @@
   );
 </script>
 
-<div>
+<div class="pb-16">
   {#each sortedRecords as record, i}
     {#if i === 0}
       <YearMonth before_created_at={0} after_created_at={record.created_at} />
@@ -34,6 +34,11 @@
     {/if}
     <Record created_at={record.created_at} foods={record.foods} />
   {/each}
-
-  <a href={`/new`} use:link> + </a>
+  <div class="bg-gray-100 w-full h-10 fixed bottom-0 left-0 text-center shadow">
+    <a
+      class="bg-gray-100 rounded-3xl w-6 h-6 shadow-md text-center fixed bottom-7"
+      href={`/new`}
+      use:link>＋</a
+    >
+  </div>
 </div>
