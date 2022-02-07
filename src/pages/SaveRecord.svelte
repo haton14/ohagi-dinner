@@ -3,7 +3,7 @@
   import { records } from "../store/record";
   import RepositoryFactory, { RECORDS } from "../repositories/factory";
   import FoodRow from "../components/FoodRow.svelte";
-  import AddButton from "../components/atoms/AddButton.svelte";
+  import InputFood from "../components/organisms/InputFood.svelte";
   import type { Record } from "../types/record";
   import type { Food } from "../types/food";
   const RecordsRepository = RepositoryFactory[RECORDS];
@@ -15,7 +15,10 @@
   let unit: string;
   let hasfoods: boolean = false;
 
-  function addFood() {
+  function addFood(event) {
+    name = event.detail.name;
+    amount = event.detail.amount;
+    unit = event.detail.unit;
     if (name == null || amount == null || unit == null) {
       return;
     }
@@ -57,34 +60,7 @@
 
 <div class="p-1 flex flex-col w-full sm:w-7/12 items-start">
   <div class="p-4 flex flex-col leading-normal">
-    <div class="p-1 flex flex-row justify-between">
-      <input
-        class="w-10/12"
-        bind:value={name}
-        type="text"
-        placeholder="フード"
-        required
-      />
-      <input
-        class="w-3/12"
-        bind:value={amount}
-        type="number"
-        inputmode="decimal"
-        placeholder="量"
-        required
-      />
-      <input
-        class="w-3/12"
-        bind:value={unit}
-        type="text"
-        placeholder="単位"
-        required
-      />
-    </div>
-
-    <div class="p-1 flex flex-col w-9 h-9 ml-auto">
-      <AddButton f={addFood} />
-    </div>
+    <InputFood {name} {amount} {unit} on:addInputFood={addFood} />
     <div class="p-1 flex flex-col w-full sm:w-7/12">
       <div class="my-4">
         {#each foods as food, i}
