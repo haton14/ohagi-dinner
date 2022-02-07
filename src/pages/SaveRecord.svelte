@@ -3,6 +3,7 @@
   import { records } from "../store/record";
   import RepositoryFactory, { RECORDS } from "../repositories/factory";
   import FoodRow from "../components/FoodRow.svelte";
+  import AddButton from "../components/atoms/AddButton.svelte";
   import type { Record } from "../types/record";
   import type { Food } from "../types/food";
   const RecordsRepository = RepositoryFactory[RECORDS];
@@ -82,9 +83,7 @@
     </div>
 
     <div class="p-1 flex flex-col w-9 h-9 ml-auto">
-      <button class="rounded-3xl w-6 h-6 shadow leading-3" on:click={addFood}
-        >＋</button
-      >
+      <AddButton f={addFood} />
     </div>
     <div class="p-1 flex flex-col w-full sm:w-7/12">
       <div class="my-4">
