@@ -6,15 +6,18 @@
   import type { Record } from "../types/record";
   import type { Food } from "../types/food";
   const RecordsRepository = RepositoryFactory[RECORDS];
-  let formCount: number = 1;
   let foods: Food[] = new Array();
 
   let id: number;
   let name: string;
   let amount: number;
   let unit: string;
+  let hasfoods: boolean = false;
 
   function addFood() {
+    if (name == null || amount == null || unit == null) {
+      return;
+    }
     let foodAdd: Food = {
       id: id,
       name: name,
@@ -27,6 +30,7 @@
     name = null;
     amount = null;
     unit = null;
+    hasfoods = hasFoods();
   }
 
   const save = async () => {
@@ -44,13 +48,15 @@
   function saveClick() {
     save();
   }
+
+  function hasFoods(): boolean {
+    return foods.length > 0;
+  }
 </script>
 
-<div
-  class="p-1 flex flex-col w-full sm:w-7/12"
->
+<div class="p-1 flex flex-col w-full sm:w-7/12 items-start">
   <div class="p-4 flex flex-col leading-normal">
-    <div class="p-2 flex flex-row justify-between">
+    <div class="p-1 flex flex-row justify-between">
       <input
         class="w-10/12"
         bind:value={name}
@@ -74,20 +80,28 @@
         required
       />
     </div>
-    <div
-    class="p-1 flex flex-col w-full sm:w-7/12"
-  >
-    <div class="my-4">
-      {#each foods as food, i}
-        <FoodRow name={food.name} amount={food.amount} unit={food.unit} />
-      {/each}
+
+    <div class="p-1 flex flex-col w-9 h-9 ml-auto">
+      <button class="rounded-3xl w-6 h-6 shadow leading-3" on:click={addFood}
+        >＋</button
+      >
     </div>
-</div>
+    <div class="p-1 flex flex-col w-full sm:w-7/12">
+      <div class="my-4">
+        {#each foods as food, i}
+          <FoodRow name={food.name} amount={food.amount} unit={food.unit} />
+        {/each}
+      </div>
+    </div>
+    <div class="p-1 flex flex-col">
+      <div class="p-1 flex flex-row justify-between">
+        <a class="w-4/12" href={`/`} use:link> キャンセル </a>
+        <button
+          class="w-4/12 rounded-3xl shadow"
+          on:click={saveClick}
+          disabled={!hasfoods}>Save</button
+        >
+      </div>
+    </div>
   </div>
 </div>
-  <button on:click={addFood}>Add</button>
-
-  <button on:click={saveClick}>Save</button>
-
-  <a href={`/`} use:link> back </a>
-
