@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Diamonds } from "svelte-loading-spinners";
   import { records } from "../store/record";
   import Record from "../components/Record.svelte";
   import { link } from "svelte-spa-router";
@@ -23,17 +24,23 @@
 </script>
 
 <div class="pb-16">
-  {#each sortedRecords as record, i}
-    {#if i === 0}
-      <YearMonth before_created_at={0} after_created_at={record.created_at} />
-    {:else}
-      <YearMonth
-        before_created_at={$records[i - 1].created_at}
-        after_created_at={record.created_at}
-      />
-    {/if}
-    <Record created_at={record.created_at} foods={record.foods} />
-  {/each}
+  {#if sortedRecords.length > 0}
+    {#each sortedRecords as record, i}
+      {#if i === 0}
+        <YearMonth before_created_at={0} after_created_at={record.created_at} />
+      {:else}
+        <YearMonth
+          before_created_at={$records[i - 1].created_at}
+          after_created_at={record.created_at}
+        />
+      {/if}
+      <Record created_at={record.created_at} foods={record.foods} />
+    {/each}
+  {:else}
+    <div class="flex justify-center">
+      <Diamonds size="60" color="#e5931f" unit="px" duration="1s" />
+    </div>
+  {/if}
   <div class="bg-gray-100 w-full h-10 fixed bottom-0 left-0 text-center shadow">
     <a
       class="bg-gray-100 rounded-3xl w-6 h-6 shadow-md text-center fixed bottom-7"
