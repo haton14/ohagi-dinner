@@ -38,7 +38,7 @@
     {/each}
   {:else}
     <div class="flex justify-center">
-      <Diamonds size="60" color="#e5931f" unit="px" duration="1s" />
+      <Diamonds size="60" color="#e5931f" unit="px" duration="5s" />
     </div>
   {/if}
   <div class="bg-gray-100 w-full h-10 fixed bottom-0 left-0 text-center shadow">
