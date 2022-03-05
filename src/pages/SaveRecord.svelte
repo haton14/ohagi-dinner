@@ -16,6 +16,7 @@
   let hasfoods: boolean = false;
 
   function addFood(event) {
+    id = event.detail.id;
     name = event.detail.name;
     amount = event.detail.amount;
     unit = event.detail.unit;

@@ -31,8 +31,28 @@
     });
   }
 
+  function findByNameUnit(name: string, unit: string): number {
+    console.log(name, unit);
+    console.log(suggestionFoods.length);
+    const ff = suggestionFoods.filter(function (food) {
+      console.log(food.name, food.unit);
+      return food.name === name && food.unit === unit;
+    });
+    console.log(ff);
+    if (ff.length === 0) {
+      return null;
+    }
+    return ff[0].id;
+  }
+
   function addInputFood() {
-    dispatch("addInputFood", { name: name, amount: amount, unit: unit });
+    const id = findByNameUnit(name, unit);
+    dispatch("addInputFood", {
+      id: id,
+      name: name,
+      amount: amount,
+      unit: unit,
+    });
   }
 </script>
 
@@ -78,10 +98,10 @@
 </datalist>
 
 <datalist id="food_unit">
-    {#each units as unit, i}
-      <option>{unit}</option>
-    {/each}
-  </datalist>
+  {#each units as unit, i}
+    <option>{unit}</option>
+  {/each}
+</datalist>
 
 <div class="p-1 flex flex-col w-9 h-9 ml-auto">
   <AddButton on:pushButton={addInputFood} />
